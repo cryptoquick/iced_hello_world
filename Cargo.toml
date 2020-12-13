@@ -10,3 +10,6 @@ publish = false
 iced = { version = "0.2.0", features = ["debug"] }
 iced_native = "0.3"
 env_logger = "0.8"
+
+[build]
+incremental = true
