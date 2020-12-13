@@ -16,6 +16,12 @@ Then run in a sort of live-reload mode with this command:
 
 `cargo watch -w src/*.rs -x run`
 
+See also this section on Enabling Fast Compiles for your system:
+
+<https://bevyengine.org/learn/book/getting-started/setup/#enable-fast-compiles-optional>
+
+Then run: `rustup override set nightly` for nightly builds for just this project.
+
 ## Docs
 
 For convenience, here are some links to the iced docs:
