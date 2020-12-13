@@ -29,7 +29,7 @@ impl Application for HelloWorld {
     type Flags = ();
 
     fn new(_flags: ()) -> (Self, Command<Message>) {
-        (HelloWorld { debug: true }, Command::none())
+        (HelloWorld { debug: false }, Command::none())
     }
 
     fn title(&self) -> String {
@@ -73,7 +73,7 @@ impl Application for HelloWorld {
                 .horizontal_alignment(HorizontalAlignment::Center),
         );
 
-        let debug_state = if debug == &mut true { "on" } else { "off" };
+        let debug_state = if debug == &mut true { "off" } else { "on" };
         let debug_enabled = Row::new().push(
             Text::new(format!("Toggle debug mode {} with F12.", debug_state))
                 .width(Length::Fill)
