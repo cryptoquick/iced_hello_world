@@ -4,6 +4,8 @@
 
 Helpful for demonstrating Iced to others! This is designed for testing on native platforms. WASM contributions welcome!
 
+![Iced Hello World example animated GIF](iced_hello_world.gif)
+
 ## Development
 
 [Cargo watch](https://github.com/passcod/cargo-watch) can be installed (and/or updated) with this command:
