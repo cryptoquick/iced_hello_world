@@ -6,6 +6,10 @@ Helpful for demonstrating Iced to others! This is designed for testing on native
 
 ![Iced Hello World example animated GIF](iced_hello_world.gif)
 
+## Build
+
+Install [mold](https://github.com/rui314/mold). On Arch, it can be found in the community repository.
+
 ## Development
 
 [Cargo watch](https://github.com/passcod/cargo-watch) can be installed (and/or updated) with this command:
@@ -19,8 +23,6 @@ Then run in a sort of live-reload mode with this command:
 See also this section on Enabling Fast Compiles for your system:
 
 <https://bevyengine.org/learn/book/getting-started/setup/#enable-fast-compiles-optional>
-
-Then run: `rustup override set nightly` for nightly builds for just this project.
 
 ## Docs
 
