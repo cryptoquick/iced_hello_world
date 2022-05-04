@@ -1,6 +1,7 @@
 use iced::{
-    executor, keyboard, window, Align, Application, Color, Column, Command, Container, Element,
-    HorizontalAlignment, Length, Row, Settings, Subscription, Text,
+    alignment::{Horizontal, Vertical},
+    executor, keyboard, window, Application, Color, Column, Command, Container, Element, Length,
+    Row, Settings, Subscription, Text,
 };
 use iced_native::{event, subscription, Event};
 
@@ -73,14 +74,14 @@ impl Application for HelloWorld {
         let row = Row::new().push(
             Text::new("Hello World!")
                 .width(Length::Fill)
-                .horizontal_alignment(HorizontalAlignment::Center),
+                .horizontal_alignment(Horizontal::Center),
         );
 
         let debug_state = if debug == &mut true { "off" } else { "on" };
         let debug_enabled = Row::new().push(
             Text::new(format!("Toggle debug mode {} with F12.", debug_state))
                 .width(Length::Fill)
-                .horizontal_alignment(HorizontalAlignment::Center),
+                .horizontal_alignment(Horizontal::Center),
         );
 
         let column = Column::new().push(row).push(debug_enabled);
@@ -95,8 +96,8 @@ impl Application for HelloWorld {
         Container::new(content)
             .height(Length::Fill)
             .width(Length::Fill)
-            .align_x(Align::Center)
-            .align_y(Align::Center)
+            .align_x(Horizontal::Center)
+            .align_y(Vertical::Center)
             .into()
     }
 }
