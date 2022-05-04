@@ -1,6 +1,7 @@
 use iced::{
-    executor, keyboard, window, Align, Application, Color, Column, Command, Container, Element,
-    HorizontalAlignment, Length, Row, Settings, Subscription, Text,
+    alignment::{Horizontal, Vertical},
+    executor, keyboard, window, Application, Color, Column, Command, Container, Element, Length,
+    Row, Settings, Subscription, Text,
 };
 use iced_native::{event, subscription, Event};
 
@@ -33,7 +34,7 @@ impl Application for HelloWorld {
     }
 
     fn title(&self) -> String {
-        format!("Iced Hello World Example")
+        "Iced Hello World Example".to_string()
     }
 
     fn update(&mut self, event: Message) -> Command<Message> {
@@ -55,10 +56,13 @@ impl Application for HelloWorld {
             }
 
             match event {
-                Event::Keyboard(keyboard::Event::KeyPressed { key_code, .. }) => match key_code {
-                    KeyCode::F12 => Some(Message::DebugToggled),
-                    _ => None,
-                },
+                Event::Keyboard(keyboard::Event::KeyPressed { key_code, .. }) => {
+                    if let KeyCode::F12 = key_code {
+                        Some(Message::DebugToggled)
+                    } else {
+                        None
+                    }
+                }
                 _ => None,
             }
         })
@@ -70,14 +74,14 @@ impl Application for HelloWorld {
         let row = Row::new().push(
             Text::new("Hello World!")
                 .width(Length::Fill)
-                .horizontal_alignment(HorizontalAlignment::Center),
+                .horizontal_alignment(Horizontal::Center),
         );
 
         let debug_state = if debug == &mut true { "off" } else { "on" };
         let debug_enabled = Row::new().push(
             Text::new(format!("Toggle debug mode {} with F12.", debug_state))
                 .width(Length::Fill)
-                .horizontal_alignment(HorizontalAlignment::Center),
+                .horizontal_alignment(Horizontal::Center),
         );
 
         let column = Column::new().push(row).push(debug_enabled);
@@ -92,8 +96,8 @@ impl Application for HelloWorld {
         Container::new(content)
             .height(Length::Fill)
             .width(Length::Fill)
-            .align_x(Align::Center)
-            .align_y(Align::Center)
+            .align_x(Horizontal::Center)
+            .align_y(Vertical::Center)
             .into()
     }
 }
